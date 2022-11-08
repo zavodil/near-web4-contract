@@ -3,8 +3,7 @@ NEAR Web4 Contract Boilerplate
 
 - [Web4 Protocol](https://web4.near.page/) support
 - Basic smart contract structure
-- Build local/docker binaries
-- Build & deploy scripts
+- Scripts to build local/docker binaries
 
 Live demo: https://near-web4-contract.testnet.page/
 
