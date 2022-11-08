@@ -1,7 +1,7 @@
 use crate::*;
 
-use std::collections::HashMap;
 use near_sdk::json_types::Base64VecU8;
+use std::collections::HashMap;
 
 #[allow(dead_code)]
 #[derive(Serialize, Deserialize)]
@@ -33,7 +33,7 @@ pub enum Web4Response {
     },
     Status {
         status: u32,
-    }
+    },
 }
 
 impl Web4Response {
@@ -47,39 +47,33 @@ impl Web4Response {
     pub fn plain_response(text: String) -> Self {
         Self::Body {
             content_type: String::from("text/plain; charset=UTF-8"),
-            body: text.as_bytes().to_owned().into()
+            body: text.as_bytes().to_owned().into(),
         }
     }
 
     pub fn svg_response(text: String) -> Self {
         Self::Body {
             content_type: String::from("image/svg+xml"),
-            body: text.as_bytes().to_owned().into()
+            body: text.as_bytes().to_owned().into(),
         }
     }
 
     pub fn png_response(bytes: Vec<u8>) -> Self {
         Self::Body {
             content_type: String::from("image/png"),
-            body: bytes.into()
+            body: bytes.into(),
         }
     }
 
     pub fn preload_urls(urls: Vec<String>) -> Self {
-        Self::PreloadUrls {
-            preload_urls: urls
-        }
+        Self::PreloadUrls { preload_urls: urls }
     }
 
     pub fn body_url(url: String) -> Self {
-        Self::BodyUrl {
-            body_url: url
-        }
+        Self::BodyUrl { body_url: url }
     }
 
     pub fn status(status: u32) -> Self {
-        Self::Status {
-            status
-        }
+        Self::Status { status }
     }
 }

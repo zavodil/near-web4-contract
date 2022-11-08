@@ -1,5 +1,5 @@
-use near_sdk::env;
 use crate::*;
+use near_sdk::env;
 
 use web4::*;
 
@@ -15,16 +15,14 @@ impl Contract {
         }
 
         let content = if let Some(user_account_id) = request.account_id {
-            include_str!("../res/account.html")
-                .replace("%ACCOUNT_ID%", user_account_id.as_ref())
+            include_str!("../res/account.html").replace("%ACCOUNT_ID%", user_account_id.as_ref())
         } else {
             include_str!("../res/sign-in.html")
                 .replace("%CONTRACT_ID%", env::current_account_id().as_ref())
         };
 
-        return Web4Response::html_response(
-            content
-                .replace("%FOOTER%", include_str!("../res/footer.inc"))
-        );
+        Web4Response::html_response(
+            content.replace("%FOOTER%", include_str!("../res/footer.inc")),
+        )
     }
 }
