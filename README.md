@@ -78,5 +78,5 @@ curl https://sh.rustup.rs -sSf | sh
 Run the compiler
 
 ```
-./build.sh
+./build_local.sh
 ```
